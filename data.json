@@ -1,0 +1,95 @@
+{
+ "s": {
+  "name": "Musthofa K Rangkuti",
+  "role": "Marketing & Visual Communication Designer",
+  "headline": "Desain visual yang membuat brand kamu dipilih.",
+  "sub": "Enam tahun lebih aku merancang identitas, konten, dan materi kampanye yang menjawab satu pertanyaan klien: bagaimana orang jadi tertarik, ingat, dan bertindak.",
+  "email": "halo@porthofalio.com",
+  "wa": "",
+  "ig": "",
+  "li": "",
+  "be": "",
+  "years": "6+",
+  "proj": "",
+  "sat": "Medan",
+  "kh": "Punya project? Ceritakan singkat.",
+  "ks": "Aku membalas dalam 1×24 jam kerja dengan pertanyaan lanjutan atau perkiraan waktu pengerjaan."
+ },
+ "w": [
+  {
+   "id": "1",
+   "t": "Karya contoh: Identitas brand",
+   "c": "Identitas brand",
+   "y": "2025",
+   "cl": "Nama klien",
+   "r": "Brand designer",
+   "d": "Ganti teks ini dari dashboard admin. Jelaskan masalah klien, ide di balik desain, dan apa yang kamu rancang.",
+   "res": "Tuliskan hasilnya, misalnya kenaikan engagement atau penjualan.",
+   "img": "",
+   "url": "",
+   "col": "#1b1b1b"
+  },
+  {
+   "id": "2",
+   "t": "Karya contoh: Kampanye sosial media",
+   "c": "Sosial media",
+   "y": "2025",
+   "cl": "Nama klien",
+   "r": "Visual designer",
+   "d": "Ganti dengan karyamu sendiri.",
+   "res": "",
+   "img": "",
+   "url": "",
+   "col": "#2433FF"
+  },
+  {
+   "id": "3",
+   "t": "Karya contoh: Materi cetak",
+   "c": "Kampanye",
+   "y": "2024",
+   "cl": "Nama klien",
+   "r": "Designer",
+   "d": "Ganti dengan karyamu sendiri.",
+   "res": "",
+   "img": "",
+   "url": "",
+   "col": "#4a4a45"
+  }
+ ],
+ "sv": [
+  {
+   "t": "Identitas brand",
+   "d": "Logo, palet, tipografi, dan panduan pemakaian supaya brand tampil konsisten di semua media."
+  },
+  {
+   "t": "Konten sosial media",
+   "d": "Template dan kalender visual yang mudah diproduksi ulang oleh tim, dengan strategi di baliknya."
+  },
+  {
+   "t": "Materi kampanye",
+   "d": "Poster, banner, deck, dan materi cetak yang dirancang untuk satu tujuan: membuat orang bertindak."
+  },
+  {
+   "t": "Design system",
+   "d": "Komponen dan token siap pakai agar tim bisa membuat desain baru tanpa mulai dari nol."
+  }
+ ],
+ "st": [
+  {
+   "t": "Brief",
+   "d": "Kita sepakati tujuan, target audiens, dan ukuran berhasilnya project."
+  },
+  {
+   "t": "Arah visual",
+   "d": "Kamu menerima beberapa arah dengan alasannya, lalu memilih satu."
+  },
+  {
+   "t": "Produksi",
+   "d": "Aku mengerjakan semua aset dengan revisi terjadwal dan jelas batasnya."
+  },
+  {
+   "t": "Serah terima",
+   "d": "File rapi, panduan pakai, dan dukungan setelah desain dipakai."
+  }
+ ]
+}

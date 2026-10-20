@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Porthofalio — Musthofa K Rangkuti, Marketing & Visual Communication Designer</title>
+<meta name="description" content="Desain visual yang membuat brand dipilih: identitas brand, konten sosial media, dan materi kampanye oleh Musthofa K Rangkuti, Medan.">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700&family=Instrument+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{--ink:#000;--paper:#F3F3F1;--mute:#76766F;--line:#D9D9D4;--sig:#2433FF;--card:#fff;--notch:polygon(0 0,100% 0,100% 68%,84% 68%,84% 100%,0 100%);--h:'Outfit',system-ui,sans-serif;--b:'Instrument Sans',system-ui,sans-serif}
+*{box-sizing:border-box;margin:0}
+html{scroll-behavior:smooth}
+body{font:400 17px/1.6 var(--b);background:var(--paper);color:var(--ink);-webkit-font-smoothing:antialiased}
+a{color:inherit}button,input,select,textarea{font:inherit;color:inherit}
+:focus-visible{outline:3px solid var(--sig);outline-offset:3px}
+h1,h2,h3{font-family:var(--h);line-height:1.05;letter-spacing:-.025em}
+.wrap{max-width:1180px;margin:0 auto;padding:0 24px}
+section{padding:96px 0}
+nav{position:sticky;top:0;z-index:20;background:rgba(243,243,241,.88);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+nav .wrap{display:flex;align-items:center;justify-content:space-between;height:64px}
+.logo{font:700 18px var(--h);text-decoration:none;display:flex;align-items:center;gap:10px}
+.logo i{width:22px;height:22px;background:var(--ink);clip-path:var(--notch)}
+nav ul{display:flex;gap:28px;list-style:none;font-size:15px}
+nav ul a{text-decoration:none;color:var(--mute)}nav ul a:hover{color:var(--ink)}
+.btn{display:inline-block;background:var(--ink);color:#fff;border:0;padding:14px 26px;font:600 16px var(--h);cursor:pointer;text-decoration:none;clip-path:var(--notch);padding-bottom:22px;transition:background .2s}
+.btn:hover{background:var(--sig)}
+.btn.ghost{background:transparent;color:var(--ink);clip-path:none;border:1.5px solid var(--ink);padding:12px 22px}
+.btn.ghost:hover{background:var(--ink);color:#fff}
+.hero{padding:72px 0 88px}
+.hero .wrap{display:grid;grid-template-columns:1.15fr .85fr;gap:56px;align-items:center}
+.hero h1{font-size:clamp(40px,6vw,76px);font-weight:700}
+.hero p{max-width:46ch;margin:24px 0 32px;color:#333}
+.hero .cta{display:flex;gap:14px;flex-wrap:wrap;align-items:center}
+.stage{perspective:900px}
+.block{position:relative;aspect-ratio:4/5;background:var(--ink);clip-path:var(--notch);transition:transform .25s ease-out;overflow:hidden}
+.block .s{position:absolute;inset:0;opacity:0;transition:opacity 1s}
+.block .s.on{opacity:1}
+.block .s img,.ph{width:100%;height:100%;object-fit:cover;display:block}
+.block small{position:absolute;left:18px;bottom:18px;color:#fff;font:600 14px var(--h);z-index:2;mix-blend-mode:difference}
+.proof{border-block:1px solid var(--line);padding:28px 0}
+.proof .wrap{display:flex;justify-content:space-between;gap:24px;flex-wrap:wrap}
+.proof b{font:700 28px var(--h);display:block}.proof span{color:var(--mute);font-size:14px}
+.head{display:flex;justify-content:space-between;align-items:end;gap:24px;flex-wrap:wrap;margin-bottom:40px}
+.head h2{font-size:clamp(32px,4.4vw,52px)}
+.filters{display:flex;gap:8px;flex-wrap:wrap}
+.filters button{background:none;border:1.5px solid var(--line);padding:7px 16px;border-radius:99px;cursor:pointer;font-size:14px}
+.filters button.on,.filters button:hover{border-color:var(--ink)}.filters button.on{background:var(--ink);color:#fff}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:28px}
+.card{all:unset;cursor:pointer;display:block;position:relative;aspect-ratio:4/5;background:var(--ink);clip-path:var(--notch);overflow:hidden}
+.card:focus-visible{outline:3px solid var(--sig);outline-offset:-3px}
+.card img,.card .ph{transition:transform .6s cubic-bezier(.2,.7,.2,1)}
+.card:hover img,.card:hover .ph{transform:scale(1.06)}
+.card .m{position:absolute;left:0;right:0;bottom:0;padding:60px 20px 20px;background:linear-gradient(transparent,rgba(0,0,0,.78));color:#fff;transform:translateY(38%);transition:transform .35s}
+.card:hover .m,.card:focus-visible .m{transform:none}
+.card .m h3{font-size:22px}.card .m p{font-size:14px;opacity:.85;margin-top:4px}
+.ph{display:grid;place-items:center;font:700 clamp(80px,12vw,150px) var(--h);color:rgba(255,255,255,.2)}
+.empty{grid-column:1/-1;color:var(--mute)}
+.svc{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:0;border-top:1.5px solid var(--ink)}
+.svc div{padding:28px 24px 8px 0;border-bottom:1px solid var(--line)}
+.svc h3{font-size:24px;margin-bottom:10px}.svc p{color:#444;font-size:16px;max-width:34ch;padding-bottom:20px}
+.dark{background:var(--ink);color:#fff}.dark .head h2{color:#fff}
+.steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:32px;counter-reset:s}
+.steps div{counter-increment:s;border-top:1px solid #444;padding-top:18px}
+.steps div:before{content:counter(s);font:700 15px var(--h);color:#9a9aff}
+.steps h3{font-size:22px;margin:8px 0}.steps p{color:#bbb;font-size:15.5px}
+.contact{display:grid;grid-template-columns:.9fr 1.1fr;gap:56px}
+.contact h2{font-size:clamp(34px,5vw,60px)}.contact>div>p{margin-top:18px;color:#333;max-width:40ch}
+form{display:grid;gap:14px}label{display:grid;gap:6px;font-size:14px;font-weight:500}
+input,select,textarea{padding:12px 14px;background:#fff;border:1.5px solid var(--line);border-radius:0;width:100%}
+input:focus,select:focus,textarea:focus{border-color:var(--ink);outline:none}
+.row{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+footer{padding:32px 0;border-top:1px solid var(--line);color:var(--mute);font-size:14px}
+footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
+footer a{margin-left:18px}
+dialog{border:0;padding:0;max-width:min(1040px,94vw);width:100%;max-height:92vh;background:var(--paper);overflow:auto;opacity:0;transform:translateY(24px) scale(.98);transition:opacity .3s,transform .3s,display .3s allow-discrete,overlay .3s allow-discrete}
+dialog[open]{opacity:1;transform:none}
+@starting-style{dialog[open]{opacity:0;transform:translateY(24px) scale(.98)}}
+dialog::backdrop{background:rgba(0,0,0,.72)}
+.dl{display:grid;grid-template-columns:1.1fr .9fr}
+.dl .im{background:var(--ink);min-height:420px}.dl .im img,.dl .im .ph{width:100%;height:100%;object-fit:cover;min-height:420px}
+.dl .tx{padding:36px 32px;display:flex;flex-direction:column;gap:14px}
+.dl h2{font-size:34px}.dl dl{display:grid;grid-template-columns:auto 1fr;gap:6px 18px;font-size:15px;border-block:1px solid var(--line);padding:14px 0}
+.dl dt{color:var(--mute)}.dl dd{margin:0}
+.dl .nv{margin-top:auto;display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap;padding-top:12px}
+.x{position:absolute;top:12px;right:12px;z-index:3;background:#fff;border:0;width:40px;height:40px;font-size:22px;cursor:pointer}
+/* admin */
+#adm{display:none;padding:32px 0 80px}
+body.admin #pub{display:none}body.admin #adm{display:block}
+.ag{display:grid;grid-template-columns:320px 1fr;gap:32px;align-items:start}
+.panel{background:#fff;border:1px solid var(--line);padding:20px}
+.panel h3{font-size:20px;margin-bottom:12px}
+.li{display:flex;align-items:center;gap:8px;padding:8px 0;border-bottom:1px solid var(--line);font-size:15px}
+.li b{flex:1;font-weight:500;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.li button,.sm{background:none;border:1px solid var(--line);padding:4px 9px;cursor:pointer;font-size:13px}
+.li button:hover,.sm:hover{border-color:var(--ink)}
+.stack{display:grid;gap:16px}
+.note{font-size:13.5px;color:var(--mute)}
+#toast{position:fixed;left:50%;bottom:24px;transform:translate(-50%,20px);background:var(--ink);color:#fff;padding:12px 20px;opacity:0;transition:.3s;pointer-events:none;z-index:50}
+#toast.on{opacity:1;transform:translate(-50%,0)}
+@media(max-width:820px){nav ul{display:none}.hero .wrap,.contact,.ag,.dl{grid-template-columns:1fr}.stage{max-width:380px}section{padding:64px 0}.row{grid-template-columns:1fr}}
+@media(prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+<div id="pub">
+<nav><div class="wrap"><a class="logo" href="#"><i></i>Porthofalio</a>
+<ul><li><a href="#karya">Karya</a></li><li><a href="#layanan">Layanan</a></li><li><a href="#proses">Proses</a></li><li><a href="#kontak">Kontak</a></li></ul>
+<a class="btn" href="#kontak" style="padding:10px 20px 16px;font-size:14px">Mulai project</a></div></nav>
+<header class="hero"><div class="wrap">
+<div><h1 id="hl"></h1><p id="sub"></p>
+<div class="cta"><a class="btn" href="#kontak">Diskusikan project</a><a class="btn ghost" href="#karya">Lihat karya</a></div></div>
+<div class="stage"><div class="block" id="blk"><small id="cap"></small></div></div>
+</div></header>
+<div class="proof"><div class="wrap" id="proof"></div></div>
+<section id="karya"><div class="wrap">
+<div class="head"><h2>Karya pilihan</h2><div class="filters" id="flt"></div></div>
+<div class="grid" id="grid"></div></div></section>
+<section id="layanan"><div class="wrap"><div class="head"><h2>Yang bisa kukerjakan untukmu</h2></div>
+<div class="svc" id="svc"></div></div></section>
+<section id="proses" class="dark"><div class="wrap"><div class="head"><h2>Cara kerjanya</h2></div>
+<div class="steps" id="stp"></div></div></section>
+<section id="kontak"><div class="wrap contact">
+<div><h2 id="kh"></h2><p id="ks"></p></div>
+<form id="cf">
+<div class="row"><label>Nama<input id="cn" required></label><label>Perusahaan atau brand<input id="cb"></label></div>
+<div class="row"><label>Jenis project<select id="ct"><option>Identitas brand</option><option>Konten sosial media</option><option>Materi kampanye</option><option>Design system</option><option>Lainnya</option></select></label>
+<label>Perkiraan budget<select id="cu"><option>Belum tahu</option><option>Di bawah Rp 2 juta</option><option>Rp 2–5 juta</option><option>Rp 5–15 juta</option><option>Di atas Rp 15 juta</option></select></label></div>
+<label>Ceritakan project dan target waktunya<textarea id="cm" rows="4" required></textarea></label>
+<div class="cta" style="display:flex;gap:12px;flex-wrap:wrap"><button class="btn" type="submit" id="bwa">Kirim lewat WhatsApp</button><button class="btn ghost" type="button" id="bem">Kirim lewat email</button></div>
+</form></div></section>
+<footer><div class="wrap"><span id="ft"></span><span id="soc"></span></div></footer>
+<dialog id="dlg"><button class="x" aria-label="Tutup" id="dx">×</button><div class="dl" id="dc"></div></dialog>
+</div>
+
+<div id="toast" role="status"></div>
+
+<script>
+const $=s=>document.querySelector(s),E=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const DEF={s:{name:'Musthofa K Rangkuti',role:'Marketing & Visual Communication Designer',headline:'Desain visual yang membuat brand kamu dipilih.',sub:'Enam tahun lebih aku merancang identitas, konten, dan materi kampanye yang menjawab satu pertanyaan klien: bagaimana orang jadi tertarik, ingat, dan bertindak.',email:'halo@porthofalio.com',wa:'',ig:'',li:'',be:'',years:'6+',proj:'',sat:'Medan',kh:'Punya project? Ceritakan singkat.',ks:'Aku membalas dalam 1×24 jam kerja dengan pertanyaan lanjutan atau perkiraan waktu pengerjaan.'},
+w:[{id:'1',t:'Karya contoh: Identitas brand',c:'Identitas brand',y:'2025',cl:'Nama klien',r:'Brand designer',d:'Ganti teks ini dari dashboard admin. Jelaskan masalah klien, ide di balik desain, dan apa yang kamu rancang.',res:'Tuliskan hasilnya, misalnya kenaikan engagement atau penjualan.',img:'',url:'',col:'#1b1b1b'},
+{id:'2',t:'Karya contoh: Kampanye sosial media',c:'Sosial media',y:'2025',cl:'Nama klien',r:'Visual designer',d:'Ganti dengan karyamu sendiri. Unggah gambar dari dashboard.',res:'',img:'',url:'',col:'#2433FF'},
+{id:'3',t:'Karya contoh: Materi cetak',c:'Kampanye',y:'2024',cl:'Nama klien',r:'Designer',d:'Ganti dengan karyamu sendiri. Unggah gambar dari dashboard.',res:'',img:'',url:'',col:'#4a4a45'}],sv:[{t:'Identitas brand',d:'Logo, palet, tipografi, dan panduan pemakaian supaya brand tampil konsisten di semua media.'},{t:'Konten sosial media',d:'Template dan kalender visual yang mudah diproduksi ulang oleh tim, dengan strategi di baliknya.'},{t:'Materi kampanye',d:'Poster, banner, deck, dan materi cetak yang dirancang untuk satu tujuan: membuat orang bertindak.'},{t:'Design system',d:'Komponen dan token siap pakai agar tim bisa membuat desain baru tanpa mulai dari nol.'}],st:[{t:'Brief',d:'Kita sepakati tujuan, target audiens, dan ukuran berhasilnya project.'},{t:'Arah visual',d:'Kamu menerima beberapa arah dengan alasannya, lalu memilih satu.'},{t:'Produksi',d:'Aku mengerjakan semua aset dengan revisi terjadwal dan jelas batasnya.'},{t:'Serah terima',d:'File rapi, panduan pakai, dan dukungan setelah desain dipakai.'}]};
+let D=JSON.parse(JSON.stringify(DEF)),gh=JSON.parse(localStorage.getItem('pfgh')||'{}'),cur=null,flt='Semua',eid=null;
+const save=()=>localStorage.setItem('pf',JSON.stringify(D));
+const toast=m=>{const t=$('#toast');t.textContent=m;t.classList.add('on');setTimeout(()=>t.classList.remove('on'),2600)};
+const art=w=>w.img?`<img src="${E(w.img)}" alt="${E(w.t)}" loading="lazy">`:`<div class="ph" style="background:${E(w.col||'#1b1b1b')}">${E((w.t||'?').replace(/^Karya contoh: /,'')[0])}</div>`;
+async function load(){try{const l=localStorage.getItem('pf');if(l){D=JSON.parse(l)}else{const r=await fetch('data.json',{cache:'no-store'});if(r.ok)D=await r.json()}}catch(e){}D.s={...DEF.s,...D.s};D.sv=D.sv||DEF.sv;D.st=D.st||DEF.st;render();route()}
+function render(){const s=D.s;
+$('#hl').textContent=s.headline;$('#sub').textContent=s.sub;
+$('#proof').innerHTML=[[s.years,'tahun pengalaman'],[s.proj||D.w.length,'karya pilihan'],['2 bahasa','Indonesia dan Inggris'],[s.sat,'bekerja dari sini, melayani online']].map(([a,b])=>`<div><b>${E(a)}</b><span>${E(b)}</span></div>`).join('');
+const cats=['Semua',...new Set(D.w.map(w=>w.c).filter(Boolean))];
+$('#flt').innerHTML=cats.map(c=>`<button class="${c===flt?'on':''}" data-c="${E(c)}">${E(c)}</button>`).join('');
+const L=D.w.filter(w=>flt==='Semua'||w.c===flt);
+$('#grid').innerHTML=L.length?L.map(w=>`<button class="card" data-id="${E(w.id)}" aria-label="Buka ${E(w.t)}">${art(w)}<div class="m"><h3>${E(w.t)}</h3><p>${E(w.c)}${w.y?' · '+E(w.y):''}</p></div></button>`).join(''):'<p class="empty">Belum ada karya di kategori ini.</p>';
+const bs=D.w.filter(w=>w.img).concat(D.w.filter(w=>!w.img)).slice(0,4);
+$('#blk').innerHTML=bs.map((w,i)=>`<div class="s${i?'':' on'}">${art(w)}</div>`).join('')+'<small id="cap">'+E(bs[0]?.t.replace(/^Karya contoh: /,'')||'')+'</small>';
+$('#ft').textContent='© '+new Date().getFullYear()+' '+s.name+' · '+s.role;
+$('#soc').innerHTML=[['ig','Instagram'],['li','LinkedIn'],['be','Behance'],['email','Email']].filter(([k])=>s[k]).map(([k,n])=>`<a href="${k==='email'?'mailto:'+E(s[k]):E(s[k])}" target="_blank" rel="noopener">${n}</a>`).join('');
+$('#bwa').style.display=s.wa?'':'none';$('#kh').textContent=s.kh;$('#ks').textContent=s.ks;$('#svc').innerHTML=D.sv.map(x=>`<div><h3>${E(x.t)}</h3><p>${E(x.d)}</p></div>`).join('');$('#stp').innerHTML=D.st.map(x=>`<div><h3>${E(x.t)}</h3><p>${E(x.d)}</p></div>`).join('');rot()}
+let rt;function rot(){clearInterval(rt);const sl=[...document.querySelectorAll('.block .s')];let i=0;if(sl.length<2)return;rt=setInterval(()=>{sl[i].classList.remove('on');i=(i+1)%sl.length;sl[i].classList.add('on');const w=D.w.filter(w=>w.img).concat(D.w.filter(w=>!w.img))[i];$('#cap').textContent=w.t.replace(/^Karya contoh: /,'')},3600)}
+$('#blk').parentElement.addEventListener('pointermove',e=>{const r=e.currentTarget.getBoundingClientRect(),x=(e.clientX-r.left)/r.width-.5,y=(e.clientY-r.top)/r.height-.5;$('#blk').style.transform=`rotateY(${x*10}deg) rotateX(${-y*10}deg)`});
+$('#blk').parentElement.addEventListener('pointerleave',()=>$('#blk').style.transform='');
+$('#flt').onclick=e=>{const c=e.target.dataset.c;if(c){flt=c;render()}};
+$('#grid').onclick=e=>{const b=e.target.closest('.card');if(b)open(b.dataset.id)};
+function open(id){const L=D.w.filter(w=>flt==='Semua'||w.c===flt);cur=L.findIndex(w=>w.id===id);show(L);if(!$('#dlg').open)$('#dlg').showModal()}
+function show(L){const w=L[cur],row=(k,v)=>v?`<dt>${k}</dt><dd>${E(v)}</dd>`:'';
+$('#dc').innerHTML=`<div class="im">${art(w)}</div><div class="tx"><h2>${E(w.t)}</h2><dl>${row('Kategori',w.c)}${row('Tahun',w.y)}${row('Klien',w.cl)}${row('Peran',w.r)}</dl><p>${E(w.d)}</p>${w.res?`<p><b>Hasil:</b> ${E(w.res)}</p>`:''}${w.url?`<a class="btn ghost" href="${E(w.url)}" target="_blank" rel="noopener">Lihat project penuh</a>`:''}<div class="nv"><button class="sm" id="pv">Sebelumnya</button><a class="btn" href="#kontak" id="mk" style="padding:10px 20px 16px;font-size:14px">Butuh yang serupa?</a><button class="sm" id="nx">Berikutnya</button></div></div>`;
+const g=d=>{cur=(cur+d+L.length)%L.length;show(L)};$('#pv').onclick=()=>g(-1);$('#nx').onclick=()=>g(1);$('#mk').onclick=()=>$('#dlg').close()}
+$('#dx').onclick=()=>$('#dlg').close();$('#dlg').onclick=e=>{if(e.target.id==='dlg')e.currentTarget.close()};
+function msg(){const v=i=>$(i).value.trim();return`Halo Musthofa, saya ${v('#cn')}${v('#cb')?' dari '+v('#cb'):''}.\nProject: ${v('#ct')}\nBudget: ${v('#cu')}\n\n${v('#cm')}`}
+$('#cf').onsubmit=e=>{e.preventDefault();open2('https://wa.me/'+D.s.wa.replace(/\D/g,'')+'?text='+encodeURIComponent(msg()))};
+$('#bem').onclick=()=>{if($('#cf').reportValidity())open2('mailto:'+D.s.email+'?subject='+encodeURIComponent('Project: '+$('#ct').value)+'&body='+encodeURIComponent(msg()))};
+const open2=u=>window.open(u,'_blank','noopener')||(location.href=u);
+function route(){if(location.hash==='#admin')location.replace('admin.html')}
+addEventListener('hashchange',route);load();
+</script>
+</body>
+</html>

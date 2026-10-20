@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Dashboard Porthofalio</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@500;600;700&family=Instrument+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{--ink:#000;--paper:#F3F3F1;--mute:#76766F;--line:#D9D9D4;--sig:#2433FF;--ok:#12814a;--warn:#b45309;--notch:polygon(0 0,100% 0,100% 68%,84% 68%,84% 100%,0 100%);--h:'Outfit',system-ui,sans-serif;--b:'Instrument Sans',system-ui,sans-serif}
+*{box-sizing:border-box;margin:0}
+body{font:400 15.5px/1.55 var(--b);background:var(--paper);color:var(--ink);display:grid;grid-template-columns:230px 1fr;min-height:100vh}
+button,input,select,textarea{font:inherit;color:inherit}
+:focus-visible{outline:3px solid var(--sig);outline-offset:2px}
+aside{background:var(--ink);color:#fff;padding:24px 16px;position:sticky;top:0;height:100vh;display:flex;flex-direction:column;gap:6px}
+.logo{font:700 19px var(--h);display:flex;align-items:center;gap:10px;padding:0 10px 22px}
+.logo i{width:22px;height:22px;background:#fff;clip-path:var(--notch)}
+aside button{all:unset;cursor:pointer;padding:11px 12px;color:#aaa;font-weight:500;display:block}
+aside button:hover{color:#fff}aside button.on{background:#fff;color:#000}
+aside button:focus-visible{outline:3px solid var(--sig)}
+aside a{margin-top:auto;color:#aaa;font-size:14px;padding:10px 12px}
+main{padding:0 36px 80px;min-width:0}
+.top{position:sticky;top:0;z-index:5;background:rgba(243,243,241,.92);backdrop-filter:blur(8px);display:flex;justify-content:space-between;align-items:center;gap:16px;padding:18px 0;border-bottom:1px solid var(--line);margin-bottom:28px;flex-wrap:wrap}
+.top h1{font:700 28px var(--h);letter-spacing:-.02em}
+.chip{font-size:13.5px;padding:5px 12px;border-radius:99px;background:#fff;border:1px solid var(--line)}
+.chip.d{color:var(--warn);border-color:var(--warn)}.chip.s{color:var(--ok);border-color:var(--ok)}
+.btn{background:var(--ink);color:#fff;border:0;padding:11px 22px 17px;font:600 15px var(--h);cursor:pointer;clip-path:var(--notch)}
+.btn:hover{background:var(--sig)}.btn:disabled{opacity:.5}
+.sm{background:#fff;border:1px solid var(--line);padding:6px 12px;cursor:pointer;font-size:14px}
+.sm:hover{border-color:var(--ink)}.sm.x:hover{border-color:#b91c1c;color:#b91c1c}
+.panel{background:#fff;border:1px solid var(--line);padding:22px;margin-bottom:20px}
+.panel h2{font:600 19px var(--h);margin-bottom:4px}.hint{color:var(--mute);font-size:13.5px;margin-bottom:14px}
+.stack{display:grid;gap:14px}.row{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+label{display:grid;gap:5px;font-size:13.5px;font-weight:500}
+input,select,textarea{padding:10px 12px;border:1.5px solid var(--line);background:#fff;width:100%;border-radius:0}
+input:focus,textarea:focus{border-color:var(--ink);outline:none}
+.kg{display:grid;grid-template-columns:300px 1fr;gap:24px;align-items:start}
+.li{display:grid;grid-template-columns:52px 1fr auto;gap:10px;align-items:center;padding:8px;border:1px solid var(--line);background:#fff;margin-bottom:8px;cursor:pointer}
+.li.on{border-color:var(--ink);box-shadow:inset 3px 0 0 var(--ink)}.li.ov{border-style:dashed;border-color:var(--sig)}
+.th{width:52px;height:52px;background:#1b1b1b;overflow:hidden;color:rgba(255,255,255,.35);display:grid;place-items:center;font:700 22px var(--h)}
+.th img{width:100%;height:100%;object-fit:cover}
+.li b{display:block;font-weight:600;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.li small{color:var(--mute)}
+.mv{display:grid;gap:2px}.mv button{border:1px solid var(--line);background:#fff;cursor:pointer;font-size:11px;padding:1px 7px}
+.drop{border:2px dashed var(--line);padding:22px;text-align:center;cursor:pointer;color:var(--mute);position:relative;background:#fafaf8}
+.drop.ov{border-color:var(--sig);color:var(--sig)}.drop input{position:absolute;inset:0;opacity:0;cursor:pointer}
+.pvw{width:230px;aspect-ratio:4/5;background:#1b1b1b;clip-path:var(--notch);position:relative;overflow:hidden}
+.pvw img{width:100%;height:100%;object-fit:cover}.pvw .m{position:absolute;inset:auto 0 0 0;padding:40px 14px 12px;background:linear-gradient(transparent,rgba(0,0,0,.8));color:#fff}
+.pvw h3{font:600 17px var(--h)}.pvw p{font-size:12.5px;opacity:.85}
+.it{border:1px solid var(--line);padding:14px;display:grid;gap:10px;margin-bottom:12px;background:#fafaf8}
+.it .hd{display:flex;justify-content:space-between;align-items:center;font-size:13px;color:var(--mute)}
+code{background:var(--paper);padding:1px 5px;font-size:13px}
+#toast{position:fixed;left:50%;bottom:24px;transform:translate(-50%,20px);background:var(--ink);color:#fff;padding:12px 20px;opacity:0;transition:.3s;pointer-events:none;z-index:50}
+#toast.on{opacity:1;transform:translate(-50%,0)}
+@media(max-width:860px){body{grid-template-columns:1fr}aside{position:static;height:auto;flex-direction:row;flex-wrap:wrap;padding:12px}.logo{padding:0 10px 0 0}aside a{margin:0}main{padding:0 16px 60px}.kg,.row{grid-template-columns:1fr}}
+@media(prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
+</head>
+<body>
+<aside><div class="logo"><i></i>Porthofalio</div>
+<button data-a="tab" data-t="karya">Karya</button><button data-a="tab" data-t="halaman">Beranda dan layanan</button><button data-a="tab" data-t="kontak">Kontak</button><button data-a="tab" data-t="publish">Publish dan cadangan</button>
+<a href="index.html" target="_blank">Lihat website</a></aside>
+<main><div class="top"><div><h1 id="tt"></h1></div><div style="display:flex;gap:12px;align-items:center"><span class="chip" id="st"></span><button class="btn" data-a="pub" id="pb">Publish ke GitHub</button></div></div><div id="v"></div></main>
+<div id="toast" role="status"></div>
+<script>
+const $=s=>document.querySelector(s),E=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const DEF={s:{name:'Musthofa K Rangkuti',role:'Marketing & Visual Communication Designer',headline:'Desain visual yang membuat brand kamu dipilih.',sub:'Enam tahun lebih aku merancang identitas, konten, dan materi kampanye yang menjawab satu pertanyaan klien: bagaimana orang jadi tertarik, ingat, dan bertindak.',email:'halo@porthofalio.com',wa:'',ig:'',li:'',be:'',years:'6+',proj:'',sat:'Medan',kh:'Punya project? Ceritakan singkat.',ks:'Aku membalas dalam 1×24 jam kerja dengan pertanyaan lanjutan atau perkiraan waktu pengerjaan.'},
+w:[{id:'1',t:'Karya contoh: Identitas brand',c:'Identitas brand',y:'2025',cl:'Nama klien',r:'Brand designer',d:'Ganti teks ini dari dashboard admin. Jelaskan masalah klien, ide di balik desain, dan apa yang kamu rancang.',res:'Tuliskan hasilnya, misalnya kenaikan engagement atau penjualan.',img:'',url:'',col:'#1b1b1b'},
+{id:'2',t:'Karya contoh: Kampanye sosial media',c:'Sosial media',y:'2025',cl:'Nama klien',r:'Visual designer',d:'Ganti dengan karyamu sendiri.',res:'',img:'',url:'',col:'#2433FF'},
+{id:'3',t:'Karya contoh: Materi cetak',c:'Kampanye',y:'2024',cl:'Nama klien',r:'Designer',d:'Ganti dengan karyamu sendiri.',res:'',img:'',url:'',col:'#4a4a45'}],
+sv:[{t:'Identitas brand',d:'Logo, palet, tipografi, dan panduan pemakaian supaya brand tampil konsisten di semua media.'},{t:'Konten sosial media',d:'Template dan kalender visual yang mudah diproduksi ulang oleh tim, dengan strategi di baliknya.'},{t:'Materi kampanye',d:'Poster, banner, deck, dan materi cetak yang dirancang untuk satu tujuan: membuat orang bertindak.'},{t:'Design system',d:'Komponen dan token siap pakai agar tim bisa membuat desain baru tanpa mulai dari nol.'}],
+st:[{t:'Brief',d:'Kita sepakati tujuan, target audiens, dan ukuran berhasilnya project.'},{t:'Arah visual',d:'Kamu menerima beberapa arah dengan alasannya, lalu memilih satu.'},{t:'Produksi',d:'Aku mengerjakan semua aset dengan revisi terjadwal dan jelas batasnya.'},{t:'Serah terima',d:'File rapi, panduan pakai, dan dukungan setelah desain dipakai.'}]};
+const TT={karya:'Karya',halaman:'Beranda dan layanan',kontak:'Kontak',publish:'Publish dan cadangan'};
+let D,live=null,tab='karya',sel=0,gh=JSON.parse(localStorage.getItem('pfgh')||'{}');
+const clone=o=>JSON.parse(JSON.stringify(o)),save=()=>localStorage.setItem('pf',JSON.stringify(D));
+const toast=m=>{const t=$('#toast');t.textContent=m;t.classList.add('on');clearTimeout(t.h);t.h=setTimeout(()=>t.classList.remove('on'),2800)};
+const fld=(o,k,l,v,x='',i='')=>`<label>${l}${x==='ta'?`<textarea rows="4" data-o="${o}" data-k="${k}" data-i="${i}">${E(v)}</textarea>`:`<input data-o="${o}" data-k="${k}" data-i="${i}" value="${E(v)}">`}</label>`;
+const thumb=w=>w.img?`<img src="${E(w.img)}" alt="">`:E((w.t||'?').replace(/^Karya contoh: /,'')[0]);
+function status(){const d=live===null||JSON.stringify(D)!==live,c=$('#st');c.className='chip '+(d?'d':'s');c.textContent=d?'Ada perubahan belum dipublish':'Sama dengan website live'}
+const V={
+karya(){const w=D.w[sel];return`<div class="kg"><div><button class="sm" data-a="add" style="margin-bottom:12px;width:100%">+ Tambah karya</button><div id="ls">${lst()}</div><p class="hint">Seret kartu atau pakai panah untuk mengatur urutan di website.</p></div>
+<div>${w?`<div class="panel"><h2>Detail karya</h2><p class="hint">Perubahan tersimpan otomatis sebagai draf. Klik Publish agar tampil di website live.</p><div class="stack">
+${fld('w','t','Judul',w.t)}<div class="row">${fld('w','c','Kategori (dipakai sebagai filter)',w.c)}${fld('w','y','Tahun',w.y)}</div>
+<div class="row">${fld('w','cl','Klien',w.cl)}${fld('w','r','Peran kamu',w.r)}</div>${fld('w','d','Deskripsi: masalah klien dan solusimu',w.d,'ta')}${fld('w','res','Hasil (angka lebih meyakinkan)',w.res)}${fld('w','url','Tautan project lengkap, misalnya Behance (opsional)',w.url)}
+<div><b style="font-size:13.5px">Gambar</b><div class="drop" id="dz">Seret gambar ke sini atau klik untuk memilih<input type="file" accept="image/*" id="wi"></div>${w.img?'<button class="sm x" data-a="rmimg" style="margin-top:8px">Hapus gambar</button>':''}</div>
+<div><b style="font-size:13.5px">Pratinjau kartu</b><div class="pvw" id="pv" style="margin-top:8px">${pv(w)}</div></div>
+<button class="sm x" data-a="del" style="justify-self:start">Hapus karya ini</button></div></div>`:'<div class="panel"><p>Belum ada karya. Klik Tambah karya.</p></div>'}</div></div>`},
+halaman(){const s=D.s,L=(a,k,n)=>a.map((x,i)=>`<div class="it"><div class="hd"><span>${n} ${i+1}</span><button class="sm x" data-a="del${k}" data-i="${i}">Hapus</button></div>${fld(k,'t','Judul',x.t,'',i)}${fld(k,'d','Penjelasan',x.d,'ta',i)}</div>`).join('');
+return`<div class="panel"><h2>Bagian utama</h2><p class="hint">Yang pertama dilihat calon klien. Tulis janji yang jelas dan spesifik.</p><div class="stack">${fld('s','name','Nama',s.name)}${fld('s','role','Profesi',s.role)}${fld('s','headline','Judul utama',s.headline)}${fld('s','sub','Kalimat pendukung',s.sub,'ta')}
+<div class="row">${fld('s','years','Tahun pengalaman',s.years)}${fld('s','proj','Jumlah project (kosongkan untuk otomatis)',s.proj)}</div>${fld('s','sat','Kota',s.sat)}</div></div>
+<div class="panel"><h2>Layanan</h2><p class="hint">Tulis dari sudut pandang klien: apa yang mereka dapat.</p>${L(D.sv,'sv','Layanan')}<button class="sm" data-a="addsv">+ Tambah layanan</button></div>
+<div class="panel"><h2>Cara kerja</h2><p class="hint">Urutan langkah dari brief sampai serah terima.</p>${L(D.st,'st','Langkah')}<button class="sm" data-a="addst">+ Tambah langkah</button></div>`},
+kontak(){const s=D.s;return`<div class="panel"><h2>Bagian kontak</h2><div class="stack">${fld('s','kh','Judul',s.kh)}${fld('s','ks','Kalimat pendukung',s.ks,'ta')}</div></div>
+<div class="panel"><h2>Saluran kontak</h2><p class="hint">Form di website mengirim pesan ke sini. Tombol WhatsApp hanya muncul kalau nomor diisi.</p><div class="stack">${fld('s','email','Email',s.email)}${fld('s','wa','Nomor WhatsApp, format internasional (contoh 6281234567890)',s.wa)}${fld('s','ig','URL Instagram',s.ig)}${fld('s','li','URL LinkedIn',s.li)}${fld('s','be','URL Behance',s.be)}</div></div>`},
+publish(){return`<div class="panel"><h2>Koneksi GitHub</h2><p class="hint">Token <b>fine-grained</b> dengan izin <b>Contents: Read and write</b> hanya untuk repo website. Token tersimpan di browser ini saja. Hanya pemilik token yang bisa mengubah website live.</p><div class="stack"><div class="row"><label>Username atau organisasi<input id="go" value="${E(gh.o)}"></label><label>Nama repository<input id="gr" value="${E(gh.r)}"></label></div><div class="row"><label>Branch<input id="gb" value="${E(gh.b||'main')}"></label><label>Personal access token<input id="gt" type="password" autocomplete="off" value="${E(gh.t)}"></label></div></div></div>
+<div class="panel"><h2>Cadangan</h2><p class="hint">Unduh <code>data.json</code> sebagai cadangan, atau impor untuk memulihkan.</p><div style="display:flex;gap:10px;flex-wrap:wrap"><button class="sm" data-a="exp">Unduh data.json</button><label class="sm" style="cursor:pointer">Impor data.json<input type="file" id="im" accept=".json" hidden></label><button class="sm x" data-a="reset">Buang draf, kembali ke versi live</button></div></div>`}};
+const pv=w=>`${w.img?`<img src="${E(w.img)}" alt="">`:''}<div class="m"><h3>${E(w.t)}</h3><p>${E(w.c)}${w.y?' · '+E(w.y):''}</p></div>`;
+const lst=()=>D.w.map((w,i)=>`<div class="li${i===sel?' on':''}" draggable="true" data-a="pick" data-i="${i}"><div class="th">${thumb(w)}</div><div style="min-width:0"><b>${E(w.t)}</b><small>${E(w.c||'Tanpa kategori')}</small></div><div class="mv"><button data-a="up" data-i="${i}" aria-label="Naikkan">▲</button><button data-a="dn" data-i="${i}" aria-label="Turunkan">▼</button></div></div>`).join('');
+function show(){$('#tt').textContent=TT[tab];document.querySelectorAll('aside [data-t]').forEach(b=>b.classList.toggle('on',b.dataset.t===tab));$('#v').innerHTML=V[tab]();status()}
+const tgt=e=>{const o=e.dataset.o,i=+e.dataset.i;return o==='s'?D.s:o==='w'?D.w[sel]:o==='sv'?D.sv[i]:D.st[i]};
+document.addEventListener('input',e=>{const el=e.target;if(!el.dataset.o)return;tgt(el)[el.dataset.k]=el.value;save();status();if(el.dataset.o==='w'){$('#ls').innerHTML=lst();$('#pv').innerHTML=pv(D.w[sel])}});
+document.addEventListener('click',e=>{const b=e.target.closest('[data-a]');if(!b)return;const a=b.dataset.a,i=+b.dataset.i;
+if(a==='up'||a==='dn'){e.stopPropagation();const j=a==='up'?i-1:i+1;if(j>=0&&j<D.w.length){[D.w[i],D.w[j]]=[D.w[j],D.w[i]];if(sel===i)sel=j;save();show()}return}
+if(a==='tab'){tab=b.dataset.t}else if(a==='pick'){sel=i}else if(a==='add'){D.w.push({id:String(Date.now()),t:'Karya baru',c:'',y:String(new Date().getFullYear()),cl:'',r:'',d:'',res:'',img:'',url:'',col:'#1b1b1b'});sel=D.w.length-1;save()}
+else if(a==='del'){if(!confirm('Hapus karya ini?'))return;D.w.splice(sel,1);sel=Math.max(0,sel-1);save()}
+else if(a==='rmimg'){D.w[sel].img='';save()}
+else if(a==='addsv'){D.sv.push({t:'Layanan baru',d:''});save()}else if(a==='addst'){D.st.push({t:'Langkah baru',d:''});save()}
+else if(a==='delsv'){D.sv.splice(i,1);save()}else if(a==='delst'){D.st.splice(i,1);save()}
+else if(a==='exp'){const l=document.createElement('a');l.href=URL.createObjectURL(new Blob([JSON.stringify(D,null,1)],{type:'application/json'}));l.download='data.json';l.click();return}
+else if(a==='reset'){if(!confirm('Draf yang belum dipublish akan hilang. Lanjut?'))return;localStorage.removeItem('pf');D=live?JSON.parse(live):clone(DEF);toast('Kembali ke versi live')}
+else if(a==='pub'){return pub()}
+show()});
+document.addEventListener('change',e=>{const t=e.target;
+if(t.id==='wi')img(t.files[0]);
+if(t.id==='im'){const r=new FileReader();r.onload=()=>{try{D=norm(JSON.parse(r.result));save();show();toast('Data diimpor')}catch{toast('File JSON tidak valid')}};r.readAsText(t.files[0])}
+if(t.closest('#v')&&'go gr gb gt'.split(' ').includes(t.id)){gh={o:$('#go').value.trim(),r:$('#gr').value.trim(),b:$('#gb').value.trim()||'main',t:$('#gt').value.trim()};localStorage.setItem('pfgh',JSON.stringify(gh));toast('Koneksi disimpan')}});
+function img(f){if(!f||!f.type.startsWith('image/'))return;const r=new FileReader();r.onload=()=>{const im=new Image();im.onload=()=>{const sc=Math.min(1,1400/im.width),c=document.createElement('canvas');c.width=im.width*sc;c.height=im.height*sc;c.getContext('2d').drawImage(im,0,0,c.width,c.height);D.w[sel].img=c.toDataURL('image/jpeg',.82);save();show();toast('Gambar tersimpan')};im.src=r.result};r.readAsDataURL(f)}
+document.addEventListener('dragover',e=>{if(e.target.closest('#dz')){e.preventDefault();$('#dz').classList.add('ov')}else if(e.target.closest('.li')&&drag!==null){e.preventDefault()}});
+document.addEventListener('dragleave',e=>{if(e.target.id==='dz')e.target.classList.remove('ov')});
+let drag=null;document.addEventListener('dragstart',e=>{const l=e.target.closest('.li');if(l)drag=+l.dataset.i});
+document.addEventListener('dragend',()=>drag=null);
+document.addEventListener('drop',e=>{if(e.target.closest('#dz')){e.preventDefault();img(e.dataTransfer.files[0])}else{const l=e.target.closest('.li');if(l&&drag!==null){e.preventDefault();const j=+l.dataset.i,[m]=D.w.splice(drag,1);D.w.splice(j,0,m);sel=j;drag=null;save();show()}}});
+async function pub(){if(!gh.o||!gh.r||!gh.t){tab='publish';show();return toast('Lengkapi koneksi GitHub dulu')}const b=$('#pb');b.disabled=true;
+try{const u=`https://api.github.com/repos/${gh.o}/${gh.r}/contents/data.json`,H={Authorization:'Bearer '+gh.t,Accept:'application/vnd.github+json'};
+const g=await fetch(u+'?ref='+gh.b,{headers:H}),sha=g.ok?(await g.json()).sha:undefined;
+const p=await fetch(u,{method:'PUT',headers:H,body:JSON.stringify({message:'Update konten dari dashboard admin',content:btoa(unescape(encodeURIComponent(JSON.stringify(D,null,1)))),branch:gh.b,sha})});
+if(p.ok){live=JSON.stringify(D);status();toast('Dipublish. Website live ter-update dalam 1–2 menit')}else toast('Gagal publish ('+p.status+'). Periksa token, repo, dan branch.')}catch{toast('Gagal terhubung ke GitHub')}b.disabled=false}
+const norm=d=>{d.s={...DEF.s,...d.s};d.w=d.w||[];d.sv=d.sv||clone(DEF.sv);d.st=d.st||clone(DEF.st);return d};
+(async()=>{try{const r=await fetch('data.json',{cache:'no-store'});if(r.ok){const t=await r.json();live=JSON.stringify(norm(t))}}catch{}
+const l=localStorage.getItem('pf');D=norm(l?JSON.parse(l):live?JSON.parse(live):clone(DEF));show()})();
+</script>
+</body>
+</html>
